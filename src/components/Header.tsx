@@ -3,8 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-// import Weather from '../Features/Weather/Weather';
-import Selector from "./navBarSelector"
+import Weather from '../Features/Weather/Weather';
 
 const useStyles = makeStyles({
   grow: {
@@ -21,12 +20,9 @@ export default () => {
     <AppBar position="static">
       <Toolbar style={{ background: "white" , color: "black"}}>
         <Typography variant="h6" color="inherit" className={classes.grow}>
-          <h1>
-            {name}
-          </h1>
+                {name}
         </Typography>
-        <Selector />
-        {/* <Weather /> */}
+        <Weather />
       </Toolbar>
     </AppBar>
   );
