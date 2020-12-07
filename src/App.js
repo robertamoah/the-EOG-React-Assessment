@@ -10,6 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 // import Grap from "./components/Graph"
 import "semantic-ui-css/semantic.min.css";
 import DashBoard from "./Screens/DashBoard";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { WebSocketLink } from "@apollo/client/link/ws";
+import { SubscriptionClient } from "subscriptions-transport-ws";
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -26,7 +29,18 @@ const theme = createMuiTheme({
   },
 });
 
-const App: React.FC = () => {
+const link = new WebSocketLink({
+  uri: "wss://react.eogresources.com/graphql",
+  options: { reconnect: true },
+});
+
+const client = new ApolloClient({
+  link,
+  uri: "https://react.eogresources.com/graphql",
+  cache: new InMemoryCache(),
+});
+
+const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -37,4 +51,8 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default () => (
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>
+);
