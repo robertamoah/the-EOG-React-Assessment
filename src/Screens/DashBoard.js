@@ -5,7 +5,6 @@ import Selector from "../components/Selector";
 import Graph from "../components/Graph";
 import Card from "../components/Card";
 import { Row, Container } from "react-bootstrap";
-import NewTubingPressure from "../Features/TubingPressure";
 import { gql, useSubscription } from "@apollo/client";
 
 const DashBoard = () => {
@@ -62,9 +61,8 @@ const DashBoard = () => {
             <Card metadata={selected} cardData={filteredPolling} />
           </div>
           <div className="mt-5">
-            <Graph />
+            <Graph metadata={selected} cardData={filteredPolling} />
           </div>
-          <NewTubingPressure />
         </Container>
       </Wrapper>
     </Fragment>
