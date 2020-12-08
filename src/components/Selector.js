@@ -21,7 +21,7 @@ const Selector = ({ selectOption }) => {
         return { key: data, text: data, value: data };
       });
 
-      return setOptions([...options, ...filters]);
+      setOptions([...options, ...filters]);
     }
   }, [data]);
 

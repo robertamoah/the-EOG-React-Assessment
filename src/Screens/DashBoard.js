@@ -47,7 +47,7 @@ const DashBoard = () => {
     if (data) {
       clonefilter(data);
     }
-  }, [data]);
+  }, [data, clonefilter]);
 
   return (
     <Fragment>

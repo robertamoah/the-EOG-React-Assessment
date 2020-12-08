@@ -1,18 +1,13 @@
 import React from "react";
 import createStore from "./store";
 import { Provider } from "react-redux";
-// import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "react-toastify/dist/ReactToastify.css";
-// import Header from './components/Header';
-// import Wrapper from './components/Wrapper';
-// import Grap from "./components/Graph"
 import "semantic-ui-css/semantic.min.css";
 import DashBoard from "./Screens/DashBoard";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import { SubscriptionClient } from "subscriptions-transport-ws";
 
 const store = createStore();
 const theme = createMuiTheme({

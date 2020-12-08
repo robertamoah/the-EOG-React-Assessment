@@ -3,7 +3,6 @@ import { Line } from "react-chartjs-2";
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import moment from "moment";
-
 const options = {
   title: {
     display: true,
@@ -21,7 +20,7 @@ const options = {
   },
 };
 
-const Graph = ({ metadata, cardData }) => {
+const Graph = () => {
   const [state, setstate] = useState("");
   const [stateDate, setstateDate] = useState("");
 
@@ -83,28 +82,24 @@ const Graph = ({ metadata, cardData }) => {
         label: "tubingPressure",
         backgroundColor: "rgba(54, 162, 235, 0.2)",
       },
-
       waterTemp: {
         data: [],
         at: [],
         label: "waterTemp",
         backgroundColor: "rgba(255, 206, 86, 0.2)",
       },
-
       casingPressure: {
         data: [],
         at: [],
         label: "casingPressure",
         backgroundColor: "rgba(75, 192, 192, 0.2)",
       },
-
       oilTemp: {
         data: [],
         at: [],
         label: "oilTemp",
         backgroundColor: "rgba(153, 102, 255, 0.2)",
       },
-
       injValveOpen: {
         data: [],
         at: [],
@@ -112,32 +107,31 @@ const Graph = ({ metadata, cardData }) => {
         backgroundColor: "rgba(255, 159, 64, 0.2)",
       },
     };
-
     getMultipleMeasurements.forEach((element) => {
       element.measurements.forEach((element) => {
         if (element.metric === "tubingPressure") {
           [element].filter((elementData) => {
-            mainObject.tubingPressure.data.push(elementData.value);
+            return mainObject.tubingPressure.data.push(elementData.value);
           });
         } else if (element.metric === "waterTemp") {
           [element].filter((elementData) => {
             mainObject.waterTemp.data.push(elementData.value);
-            mainObject.waterTemp.at.push(elementData.at);
+            return mainObject.waterTemp.at.push(elementData.at);
           });
         } else if (element.metric === "casingPressure") {
           [element].filter((elementData) => {
             mainObject.casingPressure.data.push(elementData.value);
-            mainObject.casingPressure.at.push(elementData.at);
+            return mainObject.casingPressure.at.push(elementData.at);
           });
         } else if (element.metric === "oilTemp") {
           [element].filter((elementData) => {
             mainObject.oilTemp.data.push(elementData.value);
-            mainObject.oilTemp.at.push(elementData.at);
+            return mainObject.oilTemp.at.push(elementData.at);
           });
         } else if (element.metric === "injValveOpen") {
           [element].filter((elementData) => {
             mainObject.injValveOpen.data.push(elementData.value);
-            mainObject.injValveOpen.at.push(elementData.at);
+            return mainObject.injValveOpen.at.push(elementData.at);
           });
         }
       });
