@@ -20,7 +20,6 @@ const Selector = ({ selectOption }) => {
       const filters = data.getMetrics.map((data) => {
         return { key: data, text: data, value: data };
       });
-
       setOptions([...options, ...filters]);
     }
   }, [data]);

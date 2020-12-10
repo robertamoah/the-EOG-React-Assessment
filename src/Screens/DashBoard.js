@@ -47,7 +47,7 @@ const DashBoard = () => {
     if (data) {
       clonefilter(data);
     }
-  }, [data, clonefilter]);
+  }, [data]);
 
   return (
     <Fragment>
@@ -61,7 +61,7 @@ const DashBoard = () => {
             <Card metadata={selected} cardData={filteredPolling} />
           </div>
           <div className="mt-5">
-            <Graph metadata={selected} cardData={filteredPolling} />
+            <Graph metadata={selected} liveData={filteredPolling} />
           </div>
         </Container>
       </Wrapper>
